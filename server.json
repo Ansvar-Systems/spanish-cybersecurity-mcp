@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "eu.ansvar/spanish-cybersecurity-mcp",
+  "description": "Query CCN-CERT (Spanish National Cryptologic Centre) security guidelines, technical reports, advisories, and CCN-STIC frameworks",
+  "repository": {
+    "url": "https://github.com/Ansvar-Systems/spanish-cybersecurity-mcp",
+    "source": "github"
+  },
+  "homepage": "https://ansvar.eu",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "keywords": [
+    "ccn-cert",
+    "spanish-cybersecurity",
+    "ccn-stic",
+    "cybersecurity",
+    "spain",
+    "information-security",
+    "compliance",
+    "mcp",
+    "ansvar"
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@ansvar/spanish-cybersecurity-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
