@@ -43,11 +43,13 @@
     "dev": "tsx src/http-server.ts",
     "start": "node dist/src/http-server.js",
     "seed": "npx tsx scripts/seed-sample.ts",
+    "ingest": "npx tsx scripts/ingest-ccn.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.12",
+    "@types/cheerio": "^0.22.35",
     "@types/node": "^22.13.4",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
@@ -55,6 +57,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",
     "better-sqlite3": "^9.4.3",
+    "cheerio": "^1.2.0",
     "zod": "^3.22.4"
   }
 }
