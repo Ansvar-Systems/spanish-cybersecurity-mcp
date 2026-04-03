@@ -13,7 +13,6 @@ ENV CCN_DB_PATH=/app/data/ccn.db
 COPY package.json package-lock.json* ./
 RUN npm ci --omit=dev --ignore-scripts && npm cache clean --force
 COPY --from=builder /app/dist/ dist/
-COPY data/ccn.db data/ccn.db
 RUN addgroup --system --gid 1001 mcp && \
     adduser --system --uid 1001 --ingroup mcp mcp && \
     chown -R mcp:mcp /app
