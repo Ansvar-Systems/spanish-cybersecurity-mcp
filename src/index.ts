@@ -26,6 +26,7 @@ import {
   getAdvisory,
   listFrameworks,
 } from "./db.js";
+import { buildCitation } from "./utils/citation.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -229,7 +230,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         if (!doc) {
           return errorContent(`Guidance document not found: ${parsed.reference}`);
         }
-        return textContent(doc);
+        const _citation = buildCitation(
+          parsed.reference,
+          (doc as Record<string, unknown>).title as string || parsed.reference,
+          "es_cyber_get_guidance",
+          { reference: parsed.reference },
+        );
+        return textContent({ ...doc as Record<string, unknown>, _citation });
       }
 
       case "es_cyber_search_advisories": {
@@ -248,7 +255,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         if (!advisory) {
           return errorContent(`Advisory not found: ${parsed.reference}`);
         }
-        return textContent(advisory);
+        const _citation = buildCitation(
+          parsed.reference,
+          (advisory as Record<string, unknown>).title as string || parsed.reference,
+          "es_cyber_get_advisory",
+          { reference: parsed.reference },
+        );
+        return textContent({ ...advisory as Record<string, unknown>, _citation });
       }
 
       case "es_cyber_list_frameworks": {
