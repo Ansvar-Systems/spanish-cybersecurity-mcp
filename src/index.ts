@@ -232,11 +232,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
         const _citation = buildCitation(
           parsed.reference,
-          (doc as Record<string, unknown>).title as string || parsed.reference,
+          (doc as unknown as Record<string, unknown>).title as string || parsed.reference,
           "es_cyber_get_guidance",
           { reference: parsed.reference },
         );
-        return textContent({ ...doc as Record<string, unknown>, _citation });
+        return textContent({ ...doc as unknown as Record<string, unknown>, _citation });
       }
 
       case "es_cyber_search_advisories": {
@@ -257,11 +257,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
         const _citation = buildCitation(
           parsed.reference,
-          (advisory as Record<string, unknown>).title as string || parsed.reference,
+          (advisory as unknown as Record<string, unknown>).title as string || parsed.reference,
           "es_cyber_get_advisory",
           { reference: parsed.reference },
         );
-        return textContent({ ...advisory as Record<string, unknown>, _citation });
+        return textContent({ ...advisory as unknown as Record<string, unknown>, _citation });
       }
 
       case "es_cyber_list_frameworks": {
